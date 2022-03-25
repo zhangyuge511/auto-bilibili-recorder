@@ -36,7 +36,7 @@ class UploadTask:
             suffix = "弹幕高能版"
         else:
             suffix = "无弹幕版"
-        if self.session_id not in session_dict:
+        if self.session_id:
             cover_url = video_cover_upload(self.thumbnail_path, verify=self.verify)
             data = {
                 "copyright": 2,
