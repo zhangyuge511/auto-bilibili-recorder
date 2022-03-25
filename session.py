@@ -232,7 +232,7 @@ class Session:
             f"--ignore-warnings " \
             f"-o \"{self.output_path()['ass']}\" " \
             f"-i \"{self.output_path()['clean_xml']}\" " \
-            f"--fontname \"Noto Sans CJK SC\" -S {font_size} -O 255 -L 1 -D 1 --showusernames true --showmsgbox false" \
+            f"--fontname \"Noto Sans CJK SC\" -S {font_size} -O 255 -L 1 -D 1 --showusernames false --showmsgbox false" \
             f">> \"{self.output_path()['extras_log']}\" 2>&1"
         await async_wait_output(danmaku_conversion_command)
 
@@ -288,7 +288,7 @@ class Session:
         [out]ass='{self.output_path()['ass']}'[out_sub]" \
         -map "[out_sub]" -map 1:a ''' + \
                          (" -c:v h264_nvenc -preset slow "
-                          if GPUInfo.check_empty() is not None else " -c:v libx264 -preset medium ") + \
+                          if GPUInfo.check_empty() is not None else " -c:v libx264 -preset fast ") + \
                          f'-b:v {video_bitrate}K' + f''' -b:a 320K -ar 44100  "{self.output_path()['danmaku_video']}" \
                     ''' + f'>> "{self.output_path()["video_log"]}" 2>&1'
         await async_wait_output(ffmpeg_command)
