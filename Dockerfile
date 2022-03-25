@@ -1,7 +1,8 @@
 # Auto bilibili live recording server
 #
 # VERSION               0.0.1
-ARG COMMON_IMAGE=nvidia/cuda:11.0-devel-ubuntu20.04
+#ARG COMMON_IMAGE=nvidia/cuda:11.0-devel-ubuntu20.04
+ARG COMMON_IMAGE=ubuntu18.04
 FROM ${COMMON_IMAGE}
 
 ENV TZ=Asia/Shanghai
@@ -63,10 +64,10 @@ RUN pip3 install git+https://github.com/valkjsaaa/danmaku_tools.git@4853f226301f
 
 WORKDIR "/usr/local/bin"
 
-RUN wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/patch.sh && \
-    wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/docker-entrypoint.sh && \
-    chmod +x patch.sh && \
-    chmod +x docker-entrypoint.sh
+#RUN wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/patch.sh && \
+#    wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/docker-entrypoint.sh && \
+#    chmod +x patch.sh && \
+#    chmod +x docker-entrypoint.sh
 
 WORKDIR "/webhook"
 
