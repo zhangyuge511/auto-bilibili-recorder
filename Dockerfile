@@ -2,7 +2,7 @@
 #
 # VERSION               0.0.1
 #ARG COMMON_IMAGE=nvidia/cuda:11.0-devel-ubuntu20.04
-ARG COMMON_IMAGE=ubuntu18.04
+ARG COMMON_IMAGE=ubuntu20.04
 FROM ${COMMON_IMAGE}
 
 ENV TZ=Asia/Shanghai
@@ -14,7 +14,7 @@ RUN add-apt-repository universe
 RUN apt-get update && apt-get install -y wget ffmpeg fonts-noto-color-emoji fonts-noto-cjk-extra cmake python3 python3-pip
 RUN update-ca-certificates -f
 
-RUN apt-get update && apt-get install -y libc6 libgcc1 libgssapi-krb5-2 libicu60 libssl1.1 libstdc++6 zlib1g
+RUN apt-get update && apt-get install -y libc6 libgcc1 libgssapi-krb5-2 libicu66 libssl1.1 libstdc++6 zlib1g
 
 RUN wget https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-linux-arm64.tar.gz -O powershell.tar.gz
 RUN mkdir -p /opt/pwsh
