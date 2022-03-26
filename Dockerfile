@@ -64,10 +64,10 @@ RUN pip3 install git+https://github.com/valkjsaaa/danmaku_tools.git
 
 WORKDIR "/usr/local/bin"
 
-#RUN wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/patch.sh && \
-#    wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/docker-entrypoint.sh && \
-#    chmod +x patch.sh && \
-#    chmod +x docker-entrypoint.sh
+RUN wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/patch.sh && \
+    wget https://raw.githubusercontent.com/keylase/nvidia-patch/e87985e03ac2cf9b8e8086aa4b33a140f46fe036/docker-entrypoint.sh && \
+    chmod +x patch.sh && \
+    chmod +x docker-entrypoint.sh
 
 WORKDIR "/webhook"
 
