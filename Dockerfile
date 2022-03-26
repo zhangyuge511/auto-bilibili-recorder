@@ -2,7 +2,6 @@
 #
 # VERSION               0.0.1
 ARG COMMON_IMAGE=nvidia/cuda:11.0-devel-ubuntu20.04
-
 FROM ${COMMON_IMAGE}
 
 ENV TZ=Asia/Shanghai
@@ -47,7 +46,7 @@ RUN rm -rf /opt/pwsh
 RUN rm -rf /root/.dotnet
 
 
-ENTRYPOINT BililiveRecorder/BililiveRecorder.Cli/bin/Release/netcoreapp3.1/BililiveRecorder.Cli
+#ENTRYPOINT BililiveRecorder/BililiveRecorder.Cli/bin/Release/netcoreapp3.1/BililiveRecorder.Cli
 
 WORKDIR "/"
 
@@ -60,7 +59,7 @@ RUN make -f makefile
 
 #ENTRYPOINT /bin/bash
 
-RUN pip3 install git+https://github.com/valkjsaaa/danmaku_tools.git
+RUN pip3 install git+https://github.com/valkjsaaa/danmaku_tools.git@4853f226301f7f661bcdf6d2925148bc9ecdbffd
 
 WORKDIR "/usr/local/bin"
 
@@ -74,7 +73,7 @@ WORKDIR "/webhook"
 COPY requirements.txt .
 RUN pip3 install --upgrade -r requirements.txt
 RUN wget https://raw.githubusercontent.com/valkjsaaa/Bilibili-Toolkit/7b86a61214149cc3f790d02d5d06ecd7540b9bdb/bilibili.py
-RUN pip3 install jinja2~=3.0.3
+
 COPY *.py .
 
 WORKDIR "/storage"
