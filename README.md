@@ -1,3 +1,13 @@
+运行 docker 镜像：
+
+   x64/arm64 无 GPU
+   
+   `docker run -d --restart=always --name auto-bilibili-recorder -v ${录制目标文件夹}:/storage ghcr.io/zhangyuge511/auto-bilibili-recorder:master`
+
+立即停止录播（会中断正在录制/转码/上传的录播）：
+
+   `docker rm -f auto-bilibili-recorder`
+
 Bilibili 全自动录播上传脚本
 ======
 
