@@ -47,7 +47,7 @@ RUN rm -rf /opt/pwsh
 RUN rm -rf /root/.dotnet
 
 
-#ENTRYPOINT BililiveRecorder/BililiveRecorder.Cli/bin/Release/netcoreapp3.1/BililiveRecorder.Cli
+ENTRYPOINT BililiveRecorder/BililiveRecorder.Cli/bin/Release/netcoreapp3.1/BililiveRecorder.Cli
 
 WORKDIR "/"
 
