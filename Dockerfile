@@ -73,7 +73,7 @@ WORKDIR "/webhook"
 COPY requirements.txt .
 RUN pip3 install --upgrade -r requirements.txt
 RUN wget https://raw.githubusercontent.com/valkjsaaa/Bilibili-Toolkit/7b86a61214149cc3f790d02d5d06ecd7540b9bdb/bilibili.py
-RUN pip3 install jinja2~=0.3.0
+RUN pip3 install jinja2~=3.0.3
 COPY *.py .
 
 WORKDIR "/storage"
