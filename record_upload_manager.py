@@ -236,10 +236,7 @@ class RecordUploadManager:
         self.video_upload_queue.put(
             danmaku_upload_task
         )
-        if early_upload_task is None:
-            self.comment_post_queue.put(
-                CommentTask.from_upload_task(danmaku_upload_task)
-            )
+
 
     async def handle_update(self, update_json: dict):
         room_id = update_json["EventData"]["RoomId"]
