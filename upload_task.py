@@ -99,6 +99,8 @@ class UploadTask:
                 "handle_staff": False,
                 'bvid': v["archive"]["bvid"]
             }
-            result = video_update(data, self.verify)
-            print(f"{data['title']} updated: {result}")
+            #result = video_update(data, self.verify)
+            #print(f"{data['title']} updated: {result}")
+            result = video_submit(data, self.verify)
+            print(f"{self.title} uploaded: {result}")
             return result['bvid']
