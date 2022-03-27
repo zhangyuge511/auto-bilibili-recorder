@@ -64,7 +64,7 @@ class RecordUploadManager:
         while True:
             upload_task = self.video_upload_queue.get()
             try:
-                first_video_comment = upload_task.session_id not in self.save.session_id_map
+                first_video_comment = false #upload_task.session_id not in self.save.session_id_map
                 bv_id = upload_task.upload(self.save.session_id_map)
                 sys.stdout.flush()
                 with self.save_lock:
@@ -76,10 +76,12 @@ class RecordUploadManager:
                     )
                 v_info = video.get_video_info(bvid=bv_id, is_simple=False, is_member=True, verify=upload_task.verify)
                 cid = v_info['videos'][0]['cid']
+                '''
                 print("adding subtitle task to queue")
                 self.subtitle_post_queue.put(
                     SubtitleTask.from_upload_task(upload_task, bv_id, cid)
                 )
+                '''
             except Exception:
                 if upload_task.trial < 5:
                     upload_task.trial += 1
