@@ -64,7 +64,7 @@ class RecordUploadManager:
         while True:
             upload_task = self.video_upload_queue.get()
             try:
-                first_video_comment = false #upload_task.session_id not in self.save.session_id_map
+                first_video_comment = False #upload_task.session_id not in self.save.session_id_map
                 bv_id = upload_task.upload(self.save.session_id_map)
                 sys.stdout.flush()
                 with self.save_lock:
